@@ -1,0 +1,35 @@
+{
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/v1/courier/manifest/today",
+      "description": "Mengambil daftar manifest tugas pengiriman hari ini.",
+      "response": {
+        "status": 200,
+        "body": [
+          {
+            "order_id": "ORD-2026-8801",
+            "tracking_number": "EXP-90021-JKT",
+            "recipient_name": "Ibu Ratna Dewi",
+            "recipient_phone": "081234567890",
+            "destination_address": "Jl. Melati Raya No. 45, Harjamukti, Cirebon",
+            "cod_amount": 125000.0,
+            "status": "PENDING"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/courier/deliveries/{order_id}/status?status=DELIVERED",
+      "description": "Memperbarui status pengiriman menjadi DELIVERED.",
+      "response": {
+        "status": 200,
+        "body": {
+          "success": true,
+          "message": "Status pengiriman berhasil diperbarui ke server pusat."
+        }
+      }
+    }
+  ]
+}
